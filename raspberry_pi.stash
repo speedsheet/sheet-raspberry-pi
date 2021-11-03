@@ -1,0 +1,1180 @@
+# <#>Raspberry Pi<> SpeedSheet
+<b>What you need, faster.<>
+
+<image "raspberry pi - logo.png">
+
+
+# Summary
+
+
+
+### Online - Offical Site
+<l>https://www.raspberrypi.org/<>
+
+
+
+### Online - Software Downloads
+<l>https://www.raspberrypi.org/software/<>
+
+
+
+### Online - Power Supply, Requirements
+<l>https://www.raspberrypi.org/documentation/computers/raspberry-pi.html#power-supply<>
+
+
+
+### Login - Default
+
+User Id / Password
+
+<cb>pi / raspberry<>
+
+
+
+# OS - Raspberry Pi OS
+
+
+
+### Raspberry Pi OS - Summary
+
+Linux / Debian Based
+
+Formerly "Rasbian"
+@
+@ rabsian
+
+
+
+### Raspberry Pi OS - Install OS to SD
+
+Use Raspberry Pi Imager.
+
+Download From:
+
+<cb><l>https://www.raspberrypi.org/software/<><>
+
+From Imager:
+
+<card>Select operating system.
+Write to SD card.
+Once complete, place SD card in Raspberry Pi.
+Switch on.<>
+@
+@ burn, image, flash
+
+
+
+### Raspberry Pi OS - Configure
+
+From GUI:
+
+Use Raspberry Pi Configuration...
+
+<card>Menu:
+
+Pi Start (Top Left)
+-> Preferences
+-> Raspberry Pi Configuration<>
+
+From Terminal:
+
+<cb>sudo raspi-config<>
+@
+@ sudo raspi-config
+
+
+
+### Raspberry Pi OS - Start X GUI
+
+From Terminal:
+
+<cb>startx<>
+@
+@ startx
+
+
+
+### Raspberry Pi OS - OS - Update
+
+From Terminal:
+
+<cb>sync
+sync<>
+
+Yes, run the command twice.
+
+
+
+# Python Libraries
+
+
+
+## Python - GPIO (IO)
+
+
+
+### Exit Cleanly
+
+<cb>GPIO.cleanup()<>
+
+Call at shutdown time.
+
+Safely clears current from any pins in use.
+Helps protect circuits during shutdown.
+@
+@ shutdown, GPIO.cleanup(), .cleanup()
+
+
+
+### Pin - Address Mode - Set To Broadcom
+
+<cb>import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)<>
+
+
+Sets pin address mode to Broadcom (BCM) or logical number.
+@
+@ Start, Initialize, GPIO.setmode(), .setmode(), GPIO.BCM
+
+
+
+### Pin - Address Mode - Set To Board
+
+<cb>import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BOARD)<>
+
+
+Sets pin address mode to board or physical number.
+@
+@ Start, Initialize, GPIO.setmode(), .setmode(), GPIO.BOARD
+
+
+
+### Pin - Set - Input
+
+<cb>GPIO.setup (<v>pin_number<>, GPIO.IN)<>
+
+Enable Pull Up Resistor:
+
+<cb>GPIO.setup (<v>pin_number<>, GPIO.IN, pull_up_down=GPIO.PUD_UP)<>
+@
+@ GPIO.setup(), .setup(), GPIO.IN, pull up, pull-up, pull_up_down, GPIO.PUD_UP, .PUD_UP
+
+
+
+### Pin - Output - Designate
+
+<cb>GPIO.setup (<v>pin_number<>, GPIO.OUT)<>
+@
+@ GPIO.setup(), .setup(), GPIO.OUT, .OUT
+
+
+
+### Pin - Output - Set On/Off
+
+<cb>GPIO.output (<v>pin_number<>, <v>on_state<>) 	// on_state is boolean (True | False)<>
+@
+@ GPIO.output(), .output()
+
+
+
+### Component - LED - Enable / Turn On
+
+<cb>import RPi.GPIO as GPIO
+
+<v>LED_PIN<> = 18
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(<v>LED_PIN<>, GPIO.OUT)<>
+
+Turn On:
+
+<cb>GPIO.output(<v>LED_PIN<>, GPIO.HIGH)<>
+
+
+
+## Python - GPIO Zero (IO)
+@
+@ gpiozero
+
+
+
+### Library
+
+Official Documents:
+
+<l>https://gpiozero.readthedocs.io/en/stable/index.html<>
+
+
+
+### Install
+
+
+
+#### Summary
+
+Install Raspberry Pi Library
+Install Python Library
+
+
+
+#### Install Raspberry Pi Library
+
+<cb>sudo apt install python3-gpiozero<>
+
+
+
+#### Install Python Library
+
+<cb>sudo pip3 install gpiozero<>
+
+
+
+### Header Pin Addressing
+
+These Address The Same Pin:
+
+Physical or Board Pin 11
+Logical or Broadcom Pin 17
+
+<cb><v>led_17<> = LED(<v>17<>)
+<v>led_17<> = LED(<v>"GPIO17"<>)
+<v>led_17<> = LED(<v>"BCM17"<>)
+<v>led_17<> = LED(<v>"BOARD11"<>)
+<v>led_17<> = LED(<v>"WPI0"<>)
+<v>led_17<> = LED(<v>"J8:11"<>)<>
+
+
+
+### Component - Button
+
+<cb>from gpiozero import Button
+
+= Button(<v>io_pin<>)<>
+
+
+
+#### Button - Enable
+
+<cb>from gpiozero import Button
+
+<v>button_1<> = Button(<v>io_pin<>)<>
+
+
+Enable by getting a reference to it.
+<c>gpiozero<> will configure the io pin correctly.
+
+
+
+#### Button - Check
+
+<cb>= <v>button_1<>.is_pressed<>
+
+
+
+#### Button - Wait for Press
+
+<cb><v>button_1<>.wait_for_press()<>
+
+
+
+#### Button - Set Callback For Press
+
+<cb><v>button_1<>.when_pressed = <v>callback_function<><>
+
+
+
+#### Button - Set Callback For Release
+
+<cb><v>button_1<>.when_released = <v>callback_function<><>
+
+
+
+### Component - Buzzer
+
+<cb>from gpiozero import Buzzer
+
+= Buzzer(<v>io_pin<>)<>
+
+
+
+#### Buzzer - Enable
+
+<cb>from gpiozero import Buzzer
+
+<v>buzzer_1<> = Buzzer(<v>io_pin<>)<>
+
+
+Enable by getting a reference to it.
+<c>gpiozero<> will configure the io pin correctly.
+
+
+
+#### Buzzer - Turn On / Off
+
+<cb><v>buzzer_1<>.on()<>
+
+<cb><v>buzzer_1<>.off()<>
+
+
+
+### Component - LED
+
+<cb>from gpiozero import LED
+
+= LED(<v>io_pin<>)<>
+
+
+
+#### LED - Enable
+
+<cb>from gpiozero import LED
+
+<v>led_1<> = LED(<v>io_pin<>)<>
+
+
+Enable by getting a reference to it.
+<c>gpiozero<> will configure the io pin correctly.
+
+
+
+#### LED - Turn On / Off
+
+<cb><v>led_1<>.on()<>
+
+<cb><v>led_1<>.off()<>
+
+
+
+# How To
+
+
+
+### Devices - List
+
+<cb>v4l2-ctl --list-devices<>
+
+
+
+### Firmware - Update
+
+<cb>sudo rpi-update<>
+
+
+
+### I2C - Enable
+
+Use Raspberry Config:
+
+<cb>sudo raspi-config<>
+
+
+I2C is listed under interfaces.
+@
+@ iic
+
+
+
+### I2C - Devices - List Connected
+
+From Terminal:
+
+<cb>sudo i2cdetect -y 1<>
+@
+@ iic, sudo i2cdetect
+
+
+
+### Process - Run on Startup
+
+Add startup command to file:
+
+<cb>/etc/rc.local<>
+
+
+Placing the command in <c>rc.local<> will run the command when the raspberry pi starts.
+It runs before X Windows starts.
+Runs on <c>root<> by default.
+@
+@ power on, power up, application
+
+
+#### Step 1 - Open rc.local
+
+Open <c>rc.local<>:
+
+<cb>sudo nano /etc/rc.local<>
+
+
+#### Step 2 - Add Command
+
+Run Using Root:
+
+<cb>...
+
+<v>app_start_command<>
+
+exit 0<>
+
+
+Run With User Id:
+
+<cb>...
+
+sudo -u <v>user_id<> <v>app_start_command<>
+
+exit 0<>
+
+
+Tips:
+Use the full path to startup file.
+Use a non root id to start the process.
+
+
+
+### Server - Host Name - View
+
+From GUI:
+
+Use Raspberry Pi Configuration...
+
+<card>Menu:
+
+Pi Start (Top Left)
+-> Preferences
+-> Raspberry Pi Configuration
+
+System
+-> Hostname<>
+
+From Terminal:
+
+<cb>sudo cat /etc/hostname<>
+
+
+The name is set in file <c>/etc/hostname<>.
+
+
+
+### Server - Host Name - Change
+
+From GUI:
+
+Use Raspberry Pi Configuration...
+
+<card>Menu:
+
+Pi Start (Top Left)
+-> Preferences
+-> Raspberry Pi Configuration
+
+System Tab
+-> Hostname<>
+
+From Terminal:
+
+<cb>sudo nano /etc/hostname<>
+
+
+Set/update the name by editting the file <c>/etc/hostname<>.
+@
+@ set update
+
+
+
+### Server - Password - Change
+
+From GUI:
+
+Use Raspberry Pi Configuration...
+
+<card>Menu:
+
+Pi Start (Top Left)
+-> Preferences
+-> Raspberry Pi Configuration
+
+System Tab
+-> "Change Password"<>
+
+
+
+### Server - Reboot
+
+From Terminal:
+
+<cb>sudo reboot<>
+@
+@ sudo, restart
+
+
+
+### Server - Shutdown
+
+From Terminal:
+
+<cb>sudo shutdown<>
+
+
+Shuts down in 60 seconds.
+@
+@ sudo
+
+
+
+### Server - Shutdown Immediately
+
+From Terminal:
+
+<cb>sudo shutdown
+sudo shutdown<>
+
+
+Repeat the command to shut down immediately
+@
+@ sudo
+
+
+
+### System CPU - Get
+
+From Terminal:
+
+<cb>uname -m<>
+
+Lists which ARM cpu you have (armv6l, armv7l, armv8l, etc.)
+@
+@ show, print
+
+
+
+### System Memory - Get
+
+From Terminal:
+
+<cb>free -h<>
+@
+@ show, print
+
+
+
+### System Specifications - Get
+
+<cb>cat /proc/cpuinfo<>
+
+Shows cpus, model, hardware, revision, and serial number.
+@
+@ show cpus, model, hardware, revision, serial, info
+
+
+
+# Index - General Purpose Header / Pin Outs
+
+Official Doc:
+<l>https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md<>
+
+<image "raspberry pi - header - pin outs.png">
+<s>(From Microsoft)<>
+@
+@ io pins, pull up, pull-up, pull down, pull-down, resistor
+
+
+### Index - GPIO Header Table - Logical to Physical
+
+<cb>GPIO Pin	Physical Pin	Power-on Pull	Alternate Functions	
+
+2			3				PullUp			I2C1 SDA
+3			5				PullUp			I2C1 SCL
+4			7				PullUp
+5			29				PullUp
+6			31				PullUp
+7			26				PullUp			SPI0 CS1
+8			24				PullUp			SPI0 CS0
+9			21				PullDown		SPI0 MISO
+10			19				PullDown		SPI0 MOSI
+11			23				PullDown		SPI0 SCLK
+12			32				PullDown
+13			33				PullDown
+16			36				PullDown		SPI1 CS0
+17			11				PullDown
+18			12				PullDown
+19			35				PullDown		SPI1 MISO
+20			38				PullDown		SPI1 MOSI
+21			40				PullDown		SPI1 SCLK
+22			15				PullDown
+23			16				PullDown
+24			18				PullDown
+25			22				PullDown
+26			37				PullDown
+27			13				PullDown<>
+
+No GPIO Pins 1, 14, 15
+@
+@ from-logical, logical-to-physical, to-physical
+
+
+
+### Index - GPIO Header Table - Physical to Logical
+
+<cb>Physical Pin	GPIO Pin	Power-on Pull	Alternate Functions
+
+3				2			PullUp			I2C1 SDA
+5				3			PullUp			I2C1 SCL
+7				4			PullUp
+11				17			PullDown
+12				18			PullDown
+13				27			PullDown
+15				22			PullDown
+16				23			PullDown
+18				24			PullDown
+19				10			PullDown		SPI0 MOSI
+21				9			PullDown		SPI0 MISO
+22				25			PullDown
+23				11			PullDown		SPI0 SCLK
+24				8			PullUp			SPI0 CS0
+26				7			PullUp			SPI0 CS1
+29				5			PullUp
+31				6			PullUp
+32				12			PullDown
+33				13			PullDown
+35				19			PullDown		SPI1 MISO
+36				16			PullDown		SPI1 CS0
+37				26			PullDown
+38				20			PullDown		SPI1 MOSI
+40				21			PullDown		SPI1 SCLK<>
+@
+@ from-physical, physical-to-logical, to-logical
+
+
+
+# Index - Raspberry Pi Packages
+
+
+## Raspberry Pi Installer - apt
+
+
+### apt - Package - Install
+
+<cb>sudo apt install <v>package_name<><>
+
+<cb>sudo apt install <v>package_1<> <v>package_2<> <v>...<><>
+
+
+
+
+## Packages
+
+
+
+### Package - Eclipse
+
+Name:
+
+<cb>eclipse<>
+
+Install:
+
+<cb>sudo apt install eclipse<>
+
+
+
+### Package - Git	
+
+Name:
+
+<cb>git-core<>
+
+Install:
+
+<cb>sudo apt install git-core<>
+
+
+
+### Package - iPython3
+
+A smart python CLIs.
+
+
+Name:
+
+<cb>ipython3<>
+
+Install:
+
+<cb>sudo apt install ipython3<>
+
+
+
+### Package - Node.js
+
+<!>Incomplete Instructions.<>
+
+Name:
+
+<cb>nodejs<>
+
+Install:
+
+<cb>sudo apt install nodejs<>
+
+
+
+### Package - Python
+
+(Probably already installed)
+
+Name:
+
+<cb>python<>
+
+Install:
+
+<cb>sudo apt install python<>
+
+
+
+### Package - Python Essential
+
+Name:
+
+<cb>build-essential
+python-dev<>
+
+Install:
+
+<cb>sudo apt install build-essential
+sudo apt install python-dev<>
+
+
+
+### Package - Python IDE (IDLE)
+
+Name:
+
+<cb>idle3<>
+
+Install:
+
+<cb>sudo apt install idle3<>
+
+
+
+### Package - Python pip
+
+Name:
+
+<cb>python-pip<>
+
+Install:
+
+<cb>sudo apt install python<>
+
+
+
+### Package - Solaar (Logitech Unifying Receiver)
+
+Manages Logitech mouse and keyboards.
+
+Name:
+
+<cb>solaar<>
+
+Install:
+
+<cb>sudo apt install solaar<>
+
+Start:
+
+<cb>Top Menu:
+
+	->  <image "raspberry pi - system icon.png">
+	->  Accessories
+	->  "Solaar"<>
+
+
+
+# Index - Packages Other
+
+
+
+### Package - WiringPi
+
+<cb>git://git.drogon.net/wiringPi<>
+
+
+
+# Models
+
+
+
+## Raspberry Pi Zero W
+
+CPU		Cortex (ARM v6)
+			1 GHz Single-core
+			32-bit
+
+Ram		512 MB
+
+Ports		40 GPIO pins
+			Micro USB x 1
+			(2nd micro USB port is for power only)
+			Mini HDMI
+
+Connect		802.11 b/g/n Wifi
+			Bluetooth 4.1
+			Bluetooth Low Energy (BLE)
+
+Power		5v (Required)
+			1200 mA (Recommended)
+
+			150 mA (Bare-board, Active)
+			1000 mA (OK with ordinary mouse + keyboard)
+
+
+Official Specs:
+<l>https://www.raspberrypi.org/products/raspberry-pi-zero-w/<>
+
+
+
+## Raspberry Pi 2 Model B
+
+CPU		Cortex-A7 (ARM v7)
+			900 Mhz Quad-core
+			32-bit
+
+Ram		1 GB
+
+Graphics		VideoCore IV 3D Graphics Core
+
+Ports		USB x4
+			40 GPIO pins
+			Full HDMI
+			Ethernet
+			Combined
+			- Audio 3.5mm
+			- Composite Video
+
+Interface		Camera (CSI)
+			Display (DSI)
+
+Drive		Micro SD
+
+Software		Will run full range of:
+			- ARM GNU/Linux Distros
+
+Power		5v (Required)
+			2000 mA (Recommended)
+
+			200 mA (Idle, No Peripherals)
+			350 mA (Bare-board, Active)
+			820 mA (max).
+
+			Wifi			+ 170 mA
+			Ethernet		+ 40 mA
+			Busy CPU	+250 mA
+
+
+Official Specs:
+<l>https://www.raspberrypi.org/products/raspberry-pi-2-model-b/<>
+
+
+
+## Raspberry Pi 3 Model B
+
+CPU		Cortex-A53 (ARM v8)
+			1.2 GHz Quad-core
+			Broadcom BCM2837 64-bit SoC
+
+Ram		1 GB
+
+Drive		Micro SD
+
+Power		5v
+			2.5A (Minimum)
+
+			400 mA (Bare-board, Active)
+
+
+Official Specs:
+<l>https://www.raspberrypi.org/products/raspberry-pi-3-model-b/<>
+
+
+
+## Raspberry Pi 3 Model B+
+
+CPU		Cortex-A53 (ARM v8)
+			1.4 GHz Quad-core
+			Broadcom BCM2837B0 64-bit SoC
+
+Ram		1 GB
+
+Drive		Micro SD
+
+Power		5v
+			2.5A (Minimum)
+
+			500 mA (Bare-board, Active)
+
+
+Official Specs:
+<l>https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/<>
+
+
+
+## Raspberry Pi 4 Model B
+
+CPU		Cortex-A72 (ARM v8)
+			1.5 GHz Quad-core
+			Broadcom BCM2711 64-bit SoC
+
+Ram		2 / 4 / 8 GB
+			LPDDR4-3200 SDRAM (Model Dependent)
+
+Graphics		? Vulkan V3DV
+
+			H.265 (4kp60 decode)
+			H264 (1080p60 decode, 1080p30 encode)
+
+Ports		USB 2.0 x2
+			USB 3.0 x2
+			40 GPIO pins
+			Micro-HDMI x2 (4kp60)
+			Ethernet
+			MicroSD
+			Combined
+			- Audio 3.5mm
+			- Composite Video
+			DSI Display Port - 2-lane
+			CSI Camera Port - 2-lane
+
+Interface		Camera (CSI)
+			Display (DSI)
+
+Drive		Micro SD
+
+Power		5v
+			3A (Minimum)
+
+			600 mA (Bare-board, Active)
+
+
+Official Specs:
+<l>https://www.raspberrypi.org/products/raspberry-pi-4-model-b/<>
+
+
+<image "raspberry pi 4 - ports.jpg">
+
+
+
+## Raspberry Pi 400
+
+CPU		Cortex-A72 (ARM v8)
+			1.8 GHz Quad-core
+			Broadcom BCM2711 64-bit SoC
+
+Ram		4 GB
+			LPDDR4-3200 SDRAM (Model Dependent)
+
+Graphics		? Vulkan V3DV
+
+			H.265 (4kp60 decode)
+			H264 (1080p60 decode, 1080p30 encode)
+
+Ports		USB 2.0 x1
+			USB 3.0 x2
+			40 GPIO pins
+			Micro-HDMI x2 (4kp60)
+			Ethernet (Gigabit)
+			MicroSD
+
+Drive		Micro SD
+
+Connect		802.11 b/g/n/ac Wifi
+			Bluetooth 5.0 BLE
+			Ethernet (Gigabit)
+
+Power		5v
+			3A (Minimum)
+
+			800 mA (Bare-board, active)
+
+
+Official Specs:
+<l>https://www.raspberrypi.org/products/raspberry-pi-400/specifications/<>
+
+
+
+# Glossary
+
+
+
+## Acronyms
+
+
+
+### ACK
+Acknowledgement
+
+
+
+### APT
+Avanced Package Tool
+
+
+
+### ARM
+Avanced Risc Machines
+(CPU)
+
+
+
+### BCM
+Broadcom
+
+
+### CE
+Chip Enable (Often called Chip Select)
+@
+@ CE0, CE1, CE2
+
+
+
+### HAT
+Hardware Attached on Top
+
+
+
+### I<super>2<>C
+Inter-Integrated Circuit
+(Serial Communication Protocol)
+
+Same as IIC, I Squared C
+
+
+
+### IIC
+Inter-Integrated Circuit
+(Serial Communication Protocol)
+
+Same as I<super>2<>C
+
+
+
+### IO
+Handled by BCM2835 (chip ?)
+
+
+
+### LXDE
+Lightweight X11 Desktop Environment
+(Pi's default GUI desktop)
+
+
+
+### MOMI
+Master Out Master In
+
+
+
+### MISO
+Master In Slave Out
+
+(SPI Serial Communciations Protocol)
+
+
+
+### MOSI
+Master Out Slave In
+
+(SPI Serial Communciations Protocol)
+
+
+
+### NACK
+No Acknowledgement
+
+
+### NOOBS
+New Out Of Box Software
+
+(Raspberry Pi OS Installer)
+
+
+
+### SCL
+Serial Clock
+
+(Clock Wire)
+(I<super>2C Serial Communications)
+
+
+
+### SCLK
+Serial Clock
+
+(Clock Wire)
+(I<super>2C Serial Communications)
+
+
+
+### SDA
+Serial Data
+
+(Data Wire)
+(I<super>2C Serial Communications)
+
+
+
+### SoC
+System on a Chip
+
+
+
+### SPI
+Serial Peripheral Interface
+(Serial Communication Protocol)
+
+
+
+## Terms
+
+
+
+### Board Pin Number
+The physical pin number of the GPIO header pins.
+
+vs Broadcom Number (logical number).
+
+
+
+### Broadcom Pin Number (BCM)
+The logical number of the GPIO header pins.
+These are different from the physical pin numbers.
+
+vs Board Number (physical number).
+
+
+
+### NOOBS - OS Installer
+New Out Of Box Software
+
+Installs operating systems on your Raspberry Pi.
+
+
+
+### OS - Raspbian
+The original name for Raspberry Pi OS
+
+
+
+### OS - Raspberry Pi OS
+The official operating system for Raspberry Pi.
+
+Derivative of Debian.
+Originally called: Raspbian
+@
+@ Raspbian
+
+
