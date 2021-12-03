@@ -823,7 +823,7 @@ Ports		40 GPIO pins
 			Mini HDMI
 
 Connect		802.11 b/g/n Wifi
-			Bluetooth 4.1
+			Bluetooth 4.2
 			Bluetooth Low Energy (BLE)
 
 Power		5v (Required)
@@ -835,6 +835,44 @@ Power		5v (Required)
 
 Official Specs:
 <l>https://www.raspberrypi.org/products/raspberry-pi-zero-w/<>
+
+
+
+## Raspberry Pi Zero 2 W
+
+CPU		Cortex-A53 (ARM v8)
+			1 GHz Quad-Core
+			64-bit
+
+SoC			Broadcom BCM2710A1
+
+Ram		512 MB
+
+Graphics		OpenGL Es 1.1, 2.0
+
+			H.264
+			MPEG-4 (1080p30)
+			H.264 Encoder (1080p30)
+
+Connect		802.11 b/g/n Wifi
+			Bluetooth 4.1
+			Bluetooth Low Energy (BLE)
+
+Ports		40 GPIO pins
+			Micro USB x 1
+			Micro USB Power Only
+			Mini HDMI
+			CSI-2 Camera Connector
+
+Power		5v (Required)
+			2.5 A (Recommended)
+
+			<m>?<> mA (Bare-board, Active)
+			<m>?<> mA (OK with ordinary mouse + keyboard)
+
+
+Official Specs:
+<l>https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/<>
 
 
 
