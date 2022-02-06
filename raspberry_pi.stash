@@ -105,6 +105,22 @@ Yes, run the command twice.
 
 
 
+### Rasberry Pi OS - File System
+
+<cb>ext4 <super>1<><>
+
+1 - The OS supports a number of Linux file systems but <c>ext4<> is the default.
+@
+@ ext4
+
+
+
+### Raspberry Pi OS - File System - Get
+
+<cb>df -Th<>
+
+
+
 # Python Libraries
 
 
