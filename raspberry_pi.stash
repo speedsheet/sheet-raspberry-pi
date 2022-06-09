@@ -105,7 +105,7 @@ Yes, run the command twice.
 
 
 
-### Rasberry Pi OS - File System
+### Raspberry Pi OS - File System
 
 <cb>ext4 <super>1<><>
 
@@ -1230,5 +1230,14 @@ Derivative of Debian.
 Originally called: Raspbian
 @
 @ Raspbian
+
+
+
+### Pi-hole
+A DHCP server and netowrk traffic filter that runs on a Raspberry Pi.
+
+Official Site: <l>https://pi-hole.net/<>
+Wikipedia: <l>https://en.wikipedia.org/wiki/Pi-hole<>
+
 
 
