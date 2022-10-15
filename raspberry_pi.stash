@@ -1,38 +1,67 @@
-# <#>Raspberry Pi<> SpeedSheet
-<b>Find what you need, faster.<>
+# <#>Raspberry Pi<> SpeedSheet 
+<b>Find it faster.<>
 
-<image "raspberry pi - logo.png">
-
-
-# Summary
+This is an interactive <b>Rasbperry Pi<> cheat sheet. The Raspberry Pi is a rediculously cheap and extremely versatile single-board computer. Use the search to instantly get answers.
 
 
+<image "raspberry pi - logo thumbnail.png">
 
-### Online - Offical Site
+
+<table><col><b>Basics<>
+
+<*><l "?q=header-only">Header Pins<>
+<l "?q=how-to">How To<><>
+
+<b>Raspberry Pi OS<>
+
+<*><l "?q=os-only">OS<>
+<l "?q=os-only+configuration">OS Configuration<>
+<l "?q=os-only+login">OS Login<>
+<l "?q=packages-only">Software Packages<><>
+
+<b>Reference<>
+
+<*><l "?q=acronyms">Acronyms<>
+<l "?q=terms">Terms<><><><col>	<><col><b>Models<>
+
+<*><l "?q=pi-zero-w">Pi Zero W<>
+<l "?q=pi-zero-2-w">Pi Zero 2 W<>
+<l "?q=pi-2-model-b-only">Pi 2 Model B<>
+<l "?q=pi-3-model-b-only">Pi 3 Model B<>
+<l "?q=pi-3-model-b-plus">Pi 3 Moled B+<>
+<l "?q=pi-4-model-b-only">Pi 4 Model B<>
+<l "?q=pi-400-only">Pi 400<><>
+
+
+
+<b>Related Sheets<>
+
+<*><l "bash">Bash<>
+<l "linux">Linux<>
+<l "python">Python<><><><>
+
+
+# Online Documents
+@
+@ online-docs-only, docs-only
+
+
+### Offical Site
 <l>https://www.raspberrypi.org/<>
 
 
-
-### Online - Software Downloads
+### Official - Software Downloads
 <l>https://www.raspberrypi.org/software/<>
 
 
-
-### Online - Power Supply, Requirements
+### Official - Power Supply, Requirements
 <l>https://www.raspberrypi.org/documentation/computers/raspberry-pi.html#power-supply<>
 
 
 
-### Login - Default
-
-User Id / Password
-
-<cb>pi / raspberry<>
-
-
-
 # OS - Raspberry Pi OS
-
+@
+@ pi-os-only, os-only
 
 
 ### Raspberry Pi OS - Summary
@@ -42,6 +71,14 @@ Linux / Debian Based
 Formerly "Rasbian"
 @
 @ rabsian
+
+
+
+### Raspberry Pi OS - Login Default
+
+User Id / Password
+
+<cb>pi / raspberry<>
 
 
 
@@ -80,7 +117,7 @@ From Terminal:
 
 <cb>sudo raspi-config<>
 @
-@ sudo raspi-config
+@ sudo raspi-config, configuration
 
 
 
@@ -105,6 +142,15 @@ Yes, run the command twice.
 
 
 
+### Raspberry Pi OS - OS - Version
+
+<cb>cat /ect/os-release<>
+@
+@ get, find, show, current, installed
+@ os-release
+
+
+
 ### Raspberry Pi OS - File System
 
 <cb>ext4 <super>1<><>
@@ -118,6 +164,53 @@ Yes, run the command twice.
 ### Raspberry Pi OS - File System - Get
 
 <cb>df -Th<>
+
+
+
+### Raspberry Pi OS - Network IP Address
+
+<cb>hostname -I<>
+@
+@ hostname
+
+
+
+# OS - Raspberry Pi Desktop
+@
+@ pi-os-only, os-only
+
+
+### OS Desktop - Create New
+
+Add Desktop Pager:
+
+<cb>Menu Bar: Right Click
+-> Add Remove Panel Items
+'Panel Applets' (Tab)
+'Add' (Button)
+'Desktop Pager' (Item)<>
+
+Configure Desktop Pager:
+
+<cb>Menu Bar: Far Right (Boxes)
+-> 'Desktop Pager Settings'
+Desktop (Left Tab)
+
+Set Number of Desktops
+Name Desktop<>
+@
+@ multiple desktops, spaces, pager
+
+
+
+### Raspberry Pi OS Menu - Pin Application
+
+<cb>Medu Bar (Pin Area): Righ Click
+'Application Launch Bar Settings'
+Select Item (Right Side)
+'Add'<>
+
+Use the Application Launch Bar settings.
 
 
 
@@ -365,7 +458,8 @@ Enable by getting a reference to it.
 
 
 # How To
-
+@
+@ how-to
 
 
 ### Devices - List
@@ -586,7 +680,7 @@ Shows cpus, model, hardware, revision, and serial number.
 
 
 
-# Index - General Purpose Header / Pin Outs
+# General Purpose Header / Pin Outs
 
 Official Doc:
 <l>https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md<>
@@ -595,36 +689,37 @@ Official Doc:
 <s>(From Microsoft)<>
 @
 @ io pins, pull up, pull-up, pull down, pull-down, resistor
+@ header-only, pins-only
 
 
-### Index - GPIO Header Table - Logical to Physical
+### GPIO Header Table - Logical to Physical
 
-<cb>GPIO Pin	Physical Pin	Power-on Pull	Alternate Functions	
-
-2			3				PullUp			I2C1 SDA
-3			5				PullUp			I2C1 SCL
-4			7				PullUp
-5			29				PullUp
-6			31				PullUp
-7			26				PullUp			SPI0 CS1
-8			24				PullUp			SPI0 CS0
-9			21				PullDown		SPI0 MISO
-10			19				PullDown		SPI0 MOSI
-11			23				PullDown		SPI0 SCLK
-12			32				PullDown
-13			33				PullDown
-16			36				PullDown		SPI1 CS0
-17			11				PullDown
-18			12				PullDown
-19			35				PullDown		SPI1 MISO
-20			38				PullDown		SPI1 MOSI
-21			40				PullDown		SPI1 SCLK
-22			15				PullDown
-23			16				PullDown
-24			18				PullDown
-25			22				PullDown
-26			37				PullDown
-27			13				PullDown<>
+<card><table><col><b>GPIO Pin<><><col><b>Physical Pin<><><col><b>Power-on Pull<><><col><b>Alternate Functions<><><col><>
+<col> <>
+<col>2<><col>3<><col>PullUp<><col>I2C1 SDA<>
+<col>3<><col>5<><col>PullUp<><col>I2C1 SCL<>
+<col>4<><col>7<><col>PullUp<>
+<col>5<><col>29<><col>PullUp<>
+<col>6<><col>31<><col>PullUp<>
+<col>7<><col>26<><col>PullUp<><col>SPI0 CS1<>
+<col>8<><col>24<><col>PullUp<><col>SPI0 CS0<>
+<col>9<><col>21<><col>PullDown<><col>SPI0 MISO<>
+<col>10<><col>19<><col>PullDown<><col>SPI0 MOSI<>
+<col>11<><col>23<><col>PullDown<><col>SPI0 SCLK<>
+<col>12<><col>32<><col>PullDown<>
+<col>13<><col>33<><col>PullDown<>
+<col>16<><col>36<><col>PullDown<><col>SPI1 CS0<>
+<col>17<><col>11<><col>PullDown<>
+<col>18<><col>12<><col>PullDown<>
+<col>19<><col>35<><col>PullDown<><col>SPI1 MISO<>
+<col>20<><col>38<><col>PullDown<><col>SPI1 MOSI<>
+<col>21<><col>40<><col>PullDown<><col>SPI1 SCLK<>
+<col>22<><col>15<><col>PullDown<>
+<col>23<><col>16<><col>PullDown<>
+<col>24<><col>18<><col>PullDown<>
+<col>25<><col>22<><col>PullDown<>
+<col>26<><col>37<><col>PullDown<>
+<col>27<><col>13<><col>PullDown<><><>
 
 No GPIO Pins 1, 14, 15
 @
@@ -632,34 +727,34 @@ No GPIO Pins 1, 14, 15
 
 
 
-### Index - GPIO Header Table - Physical to Logical
+### GPIO Header Table - Physical to Logical
 
-<cb>Physical Pin	GPIO Pin	Power-on Pull	Alternate Functions
-
-3				2			PullUp			I2C1 SDA
-5				3			PullUp			I2C1 SCL
-7				4			PullUp
-11				17			PullDown
-12				18			PullDown
-13				27			PullDown
-15				22			PullDown
-16				23			PullDown
-18				24			PullDown
-19				10			PullDown		SPI0 MOSI
-21				9			PullDown		SPI0 MISO
-22				25			PullDown
-23				11			PullDown		SPI0 SCLK
-24				8			PullUp			SPI0 CS0
-26				7			PullUp			SPI0 CS1
-29				5			PullUp
-31				6			PullUp
-32				12			PullDown
-33				13			PullDown
-35				19			PullDown		SPI1 MISO
-36				16			PullDown		SPI1 CS0
-37				26			PullDown
-38				20			PullDown		SPI1 MOSI
-40				21			PullDown		SPI1 SCLK<>
+<card><table><col><b>Physical Pin<><><col><b>GPIO Pin<><><col><b>Power-on Pull<><><col><b>Alternate Functions<><>
+<col> <>
+<col>3<><col>2<><col>PullUp<><col>I2C1 SDA<>
+<col>5<><col>3<><col>PullUp<><col>I2C1 SCL<>
+<col>7<><col>4<><col>PullUp<>
+<col>11<><col>17<><col>PullDown<>
+<col>12<><col>18<><col>PullDown<>
+<col>13<><col>27<><col>PullDown<>
+<col>15<><col>22<><col>PullDown<>
+<col>16<><col>23<><col>PullDown<>
+<col>18<><col>24<><col>PullDown<>
+<col>19<><col>10<><col>PullDown<><col>SPI0 MOSI<>
+<col>21<><col>9<><col>PullDown<><col>SPI0 MISO<>
+<col>22<><col>25<><col>PullDown<>
+<col>23<><col>11<><col>PullDown<><col>SPI0 SCLK<>
+<col>24<><col>8<><col>PullUp<><col>SPI0 CS0<>
+<col>26<><col>7<><col>PullUp<><col>SPI0 CS1<>
+<col>29<><col>5<><col>PullUp<>
+<col>31<><col>6<><col>PullUp<>
+<col>32<><col>12<><col>PullDown<>
+<col>33<><col>13<><col>PullDown<>
+<col>35<><col>19<><col>PullDown<><col>SPI1 MISO<>
+<col>36<><col>16<><col>PullDown<><col>SPI1 CS0<>
+<col>37<><col>26<><col>PullDown<>
+<col>38<><col>20<><col>PullDown<><col>SPI1 MOSI<>
+<col>40<><col>21<><col>PullDown<><col>SPI1 SCLK<><><>
 @
 @ from-physical, physical-to-logical, to-logical
 
@@ -671,6 +766,11 @@ No GPIO Pins 1, 14, 15
 ## Raspberry Pi Installer - apt
 
 
+### apt - Update
+
+<cb>sudo apt update<>
+
+
 ### apt - Package - Install
 
 <cb>sudo apt install <v>package_name<><>
@@ -679,9 +779,17 @@ No GPIO Pins 1, 14, 15
 
 
 
+### apt - Packages - Upgrade
+
+<cb>sudo apt upgrade<>
+@
+@ apt upgrade, update
+
+
 
 ## Packages
-
+@
+@ install, package-only, packages-only
 
 
 ### Package - Eclipse
@@ -693,6 +801,21 @@ Name:
 Install:
 
 <cb>sudo apt install eclipse<>
+
+
+
+### Package - Firefox
+
+Name:
+
+<cb>firefox-esr<>
+
+Install:
+
+<cb>sudo apt install firefox-esr<>
+
+
+ESR = Extended Support Release
 
 
 
@@ -789,6 +912,112 @@ Install:
 
 
 
+### Package - Samba (File Sharing)
+
+Name:
+
+<cb>samba<>
+
+Install:
+
+<cb>sudo apt install samba samba-common-bin<>
+@
+@ samba, smb, file share, smb.conf, smb
+
+
+
+#### Package - Samba - Install and Share Folder
+
+Instructions:
+
+<*>Install Samba
+Set Share Folder
+Configure smb.conf
+Set User Password
+Restart Service<>
+
+Install:
+
+<cb>sudo apt install samba samba-common-bin<>
+
+Set Share Folder:
+
+<cb>mkdir <v>/home/pi/shared<><>
+
+Configure smb.conf:
+
+<cb>sudo nano /etc/samba/smb.conf<>
+
+<cb>[<v>share_name<>]
+path = <v>/home/pi/shared<>
+writeable = yes
+create mask = 0777
+directory mask = 0777
+public = no<>
+
+Set User Samba Password
+
+<cb>sudo smbpasswd -a <v>user<><>
+
+Restart:
+
+<cb>sudo systemctl restart smbd<>
+
+Drive Name:
+
+<cb>\\\\<v>server_name<>\\<v>share_name<><>
+
+
+
+#### Package - Samba Service - Config File
+
+Location:
+
+<cb>/etc/samba/smb.conf<>
+
+Edit:
+
+<cb>sudo nano /etc/samba/smb.conf<>
+
+Settings:
+
+<card><table><col>path<><col>Defines Share Path<>
+<col>writeable<><col>'yes' Allows Users to Write To Directory<>
+<col>create mask<><col>Defines File Permissions
+0777 = User Read, Write, Execute<>
+<col>directory mask<><col>Defines Directory Permissions
+0777 = User Read, Write, Execute<>
+<col>public<><col>'no' Requires Valid User<><><>
+@
+@ smb.conf, /etc/samba/smb.conf, configure
+
+
+
+#### Package - Samba Service - Restart
+
+<cb>sudo systemctl restart smbd<>
+@
+@ service
+
+
+
+#### Package - Samba - Share Name
+
+<cb>smb://<v>server_name<>/<v>share_name<><>
+
+
+
+#### Package - Samba - User Pasword - Set
+
+<cb>sudo smbpasswd -a <v>user<><>
+
+Sets the user Samba password.
+Prompts for the new password.
+@
+@ service
+
+
+
 ### Package - Solaar (Logitech Unifying Receiver)
 
 Manages Logitech mouse and keyboards.
@@ -822,7 +1051,8 @@ Start:
 
 
 # Models
-
+@
+@ models-only, pi-models-only
 
 
 ## Raspberry Pi Zero W
@@ -851,6 +1081,8 @@ Power		5v (Required)
 
 Official Specs:
 <l>https://www.raspberrypi.org/products/raspberry-pi-zero-w/<>
+@
+@ raspberry-pi-zero-w, pi-zero-w, zero-w
 
 
 
@@ -889,6 +1121,8 @@ Power		5v (Required)
 
 Official Specs:
 <l>https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/<>
+@
+@ raspberry-pi-zero-2-w, pi-zero-2-w, zero-2-w
 
 
 
@@ -932,6 +1166,9 @@ Power		5v (Required)
 
 Official Specs:
 <l>https://www.raspberrypi.org/products/raspberry-pi-2-model-b/<>
+raspberry-pi-2-model-b
+@
+@ raspberry-pi-2-model-b-only, pi-2-model-b-only, b-only
 
 
 
@@ -953,6 +1190,8 @@ Power		5v
 
 Official Specs:
 <l>https://www.raspberrypi.org/products/raspberry-pi-3-model-b/<>
+@
+@ raspberry-pi-3-model-b-only, pi-3-model-b-only, b-only
 
 
 
@@ -974,6 +1213,8 @@ Power		5v
 
 Official Specs:
 <l>https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/<>
+@
+@ plus, b-plus, pi-3-model-b+, pi-3-model-b-plus, raspberry-pi-3-model-b+, raspberry-pi-3-model-b-plus
 
 
 
@@ -1019,6 +1260,8 @@ Official Specs:
 
 
 <image "raspberry pi 4 - ports.jpg">
+@
+@ raspberry-pi-4-model-b-only, pi-4-model-b-only, b-only
 
 
 
@@ -1057,15 +1300,14 @@ Power		5v
 
 Official Specs:
 <l>https://www.raspberrypi.org/products/raspberry-pi-400/specifications/<>
+@
+@ raspberry-pi-400-only, pi-400-only
 
 
 
-# Glossary
-
-
-
-## Acronyms
-
+# Acronyms
+@
+@ acronyms-only, glossary
 
 
 ### ACK
@@ -1092,6 +1334,16 @@ Broadcom
 Chip Enable (Often called Chip Select)
 @
 @ CE0, CE1, CE2
+
+
+
+### CIFS
+Common Internet File System (Implementation of SMB)
+
+
+
+### ESR
+Extended Service Release
 
 
 
@@ -1181,6 +1433,10 @@ Serial Data
 
 
 
+### SMB
+Server Message Block (network protocol)
+
+
 ### SoC
 System on a Chip
 
@@ -1192,8 +1448,9 @@ Serial Peripheral Interface
 
 
 
-## Terms
-
+# Terms
+@
+@ glossary, terms-only
 
 
 ### Board Pin Number
