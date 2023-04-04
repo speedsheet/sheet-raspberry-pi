@@ -79,6 +79,8 @@ Formerly "Rasbian"
 User Id / Password
 
 <cb>pi / raspberry<>
+@
+@ user id, user name, username, password
 
 
 
@@ -121,9 +123,22 @@ From Terminal:
 
 
 
-### Raspberry Pi OS - Start X GUI
+### Raspberry Pi OS - File System
 
-From Terminal:
+<cb>ext4 <super>1<><>
+
+1 - The OS supports a number of Linux file systems but <c>ext4<> is the default.
+@
+@ ext4
+
+
+
+# Raspberry Pi OS - Terminal Commands
+@
+@ command line, cli, bash
+
+
+### Raspberry Pi OS - Start X GUI
 
 <cb>startx<>
 @
@@ -132,8 +147,6 @@ From Terminal:
 
 
 ### Raspberry Pi OS - OS - Update
-
-From Terminal:
 
 <cb>sync
 sync<>
@@ -151,19 +164,24 @@ Yes, run the command twice.
 
 
 
-### Raspberry Pi OS - File System
+### Raspberry Pi OS - File System - Get Block Devices
 
-<cb>ext4 <super>1<><>
+<cb>lsblk<>
 
-1 - The OS supports a number of Linux file systems but <c>ext4<> is the default.
+Lists all block devices on the system.
 @
-@ ext4
+@ list, show
+@ lsblk
 
 
-
-### Raspberry Pi OS - File System - Get
+### Raspberry Pi OS - File System - Get Types
 
 <cb>df -Th<>
+
+Lists mounted drives and the file system type for each.
+@
+@ list, show
+@ df, -th, -t, -h
 
 
 
@@ -172,6 +190,19 @@ Yes, run the command twice.
 <cb>hostname -I<>
 @
 @ hostname
+
+
+
+### Raspberry Pi OS - Show CPU, Memory, Processes
+
+<cb>htop<>
+
+
+Shows realtime information for the CPU, memory, swap space and top running processes.
+
+Displays as a full screen terminal app.
+@
+@ monitor, real time
 
 
 
